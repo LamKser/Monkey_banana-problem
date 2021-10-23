@@ -92,7 +92,7 @@ public class MonkeyBananaSolution {
         System.out.println("(total = " + (--count) +")");
     }
 
-    public void fastWay(int source, int des) {
+    private void fastWay(int source, int des) {
         row = a[0].length;
         col = a.length;
         int start = 0, end = 0;
