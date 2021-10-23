@@ -126,12 +126,6 @@ public class MonkeyBananaSolution {
         System.out.print("From " + map.get(source) + " to " + map.get(des) + ": ");
         BFS(start, end);
     }
-
-    public void botPlay() {
-        fastWay(1, 2);
-        fastWay(2, 3);
-        fastWay(3, 4);
-    }
     
     public void botPlay() {
         boolean hasStick = false;
