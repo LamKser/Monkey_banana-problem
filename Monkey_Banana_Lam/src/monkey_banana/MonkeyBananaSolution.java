@@ -132,4 +132,61 @@ public class MonkeyBananaSolution {
         fastWay(2, 3);
         fastWay(3, 4);
     }
+    
+    public void botPlay() {
+        boolean hasStick = false;
+        boolean toChair = false;
+        boolean push = false;
+        boolean climb = false;
+        boolean hasBanana = false;
+        /*not have stick and chair and banana*/ 
+        System.out.print("0. "); state(1, hasStick, toChair, hasBanana, push, climb);
+        System.out.print("1. "); fastWay(1, 2); state(1, hasStick=true, toChair, hasBanana, push, climb);  
+                                 takeStick(hasStick);
+        System.out.print("2. "); fastWay(2, 3); state(1, hasStick, toChair=true, hasBanana, push, climb);
+                                 pushChair(toChair); push = true;
+        System.out.print("3. "); fastWay(3, 4); state(1, hasStick, toChair, hasBanana, push, climb);
+                                 climbChair(toChair); climb = true;
+                                 waveStick(hasStick); hasBanana = true;
+        System.out.print("4. "); state(1, hasStick, toChair, hasBanana, push, climb);
+    }
+
+    //state
+    private void state(int monkey, boolean hasStick, boolean toChair, boolean hasBanana, boolean push, boolean climb) {
+        if(hasStick && !toChair && !hasBanana) {
+            System.out.println("   The monkey goes to the stick and still doesn't have banana");
+        }
+        if(!hasStick && toChair && !hasBanana) {
+            System.out.println("The monkey goes to the chair and still doesn't have banana");
+        }
+        if(!hasStick && !toChair && !hasBanana) {
+            System.out.println("The monkey doesn't have banana");
+        }
+        if(hasStick && toChair && hasBanana) {
+            System.out.println("The monkey has banana");
+        }
+        if(hasStick && toChair && !hasBanana) {
+            if(!push && !climb) System.out.println("   The monkey has stick and goes to the chair but still doesn't have banana");
+        }
+    }
+    
+    private void takeStick(boolean hasStick) { //kiểm tra đã cầm gậy chưa
+        if (hasStick) System.out.println("-> The monkey takes the stick");
+        else System.out.println("-> The monkey doesn't take the stick");
+    }
+
+    private void waveStick(boolean hasStick) {
+        if (hasStick) System.out.println("-> The monkey waves the stick");
+        else System.out.println("-> The monkey doesn't wave the stick");
+    }
+
+    private void pushChair(boolean toChair) {
+        if (toChair) System.out.println("-> The monkey pushes the chair");
+        else System.out.println("-> The monkey doesn't pushes the chair");;
+    }
+
+    private void climbChair(boolean toChair) {
+        if (toChair) System.out.println("-> The monkey climbs on the chair");
+        else System.out.println("-> The monkey doesn't climbs on the chair");
+    }  
 }
