@@ -5,7 +5,6 @@
  */
 package monkey_banana;
 
-import algorithm.MonkeyBananaSolution;
 import interfere.Utils;
 import menu_list.I_Menu;
 import menu_list.Menu;
